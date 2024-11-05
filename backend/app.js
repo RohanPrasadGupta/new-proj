@@ -1,8 +1,16 @@
 const express = require("express");
 const userRouter = require("./Routes/userRouter")
+const cors = require("cors");
+
+const corsOptions = {
+    origin: "http://localhost:3001",
+  methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
+  credentials: true,
+}
 
 
 const app = express();
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.get("/", (req, res) => {
